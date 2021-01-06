@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="resume.css">
+</head>
+
+<body >
+    <h1 style="margin-left: 5VH;">RESUME:</h1>
+    <div class="flex-container" >
+        <div class="card">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" style="width:100%">
+            <div class="container">
+                <h4 style="font-style: italic;"><b>Name:</b> Sree krishna <br> <b>Age:</b>19</h4>
+                <h4 style="font-style: italic; margin-top: -2vh;"><b>E-mail:</b> test@gmail.com <br> <b>CGPA:</b>8.4</h4>
+            </div>
+        </div>
+
+        <div >
+
+            <ul>
+                <b>INTRESTS:</b>
+                <li> philosiphy </li>
+                <li>literature</li>
+                <li>movies</li>
+                <li>Reading Books</li>
+                <li>watching anime shows</li>
+
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <b>SKILLS</b>
+                <li>data science</li>
+                <li>full stack web development</li>
+                <li>android application development</li>
+            </ul>
+            <ul>
+                <b>EDUCATION:</b>
+                <li>dbhps school</li>
+                <li>KL-University </li>
+            </ul>
+            <ul><b>
+                    EXPERIENCE:
+                </b>
+                <li> 0-Years</li>
+
+            </ul>
+
+        </div>
+        <div id="S" style="display: flex; flex-direction: column; border: 2px solid black;">
+
+
+        </div>
+
+
+    </div>
+</body>
+<script>
+    var http = new XMLHttpRequest()
+    http.onreadystatechange = function () { console.log(this.response);
+        var s=document.getElementById('s')
+        var j=JSON.parse(this.responseText)
+        console.log(j[0].title);
+        // for(i in j){
+        //     console.log(j[i]);
+        // }
+        for(i in  j ){
+            var c = document.createElement('p')
+            c.innerText=JSON.stringify(j[i].title)
+            document.getElementById('S').appendChild(c)
+        }
+    }
+    // http.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //       console.log(this.responseText);
+    //     // document.getElementById("dat").innerHTML = this.responseText;
+    //   }
+    // };
+    http.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
+    http.send()
+    
+    
+</script>
+
+</html>
